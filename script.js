@@ -82,10 +82,13 @@ function renderSchedule(schedule, container, tableType){
   
   const btnDiv = document.createElement('div');
   btnDiv.style.marginTop = '12px';
+  btnDiv.style.textAlign = 'center';
   const exportBtn = document.createElement('button');
   exportBtn.textContent = 'Exportar a Excel';
   exportBtn.type = 'button';
   exportBtn.className = 'secondary';
+  exportBtn.style.display = 'inline-block';
+  exportBtn.style.minWidth = '180px';
   exportBtn.addEventListener('click', ()=>{
     exportToExcel(schedule, tableType);
   });

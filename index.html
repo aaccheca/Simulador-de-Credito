@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulador de Crédito</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Simulador de Crédito Bancario</h1>
+      <p class="lead">Calcula tu cronograma de pagos basado en el valor del préstamo que deseas solicitar.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="calculator">
+      <form id="simForm" novalidate>
+        <div class="grid">
+          <label>
+            Monto del crédito
+            <input id="amount" class="no-e" type="number" min="0" step="0.01" placeholder="Ej: 10000" required />
+          </label>
+          <label>
+            Tasa de interés anual (%)
+            <input id="rate" class="no-e" type="number" min="0" step="0.01" placeholder="Ej: 12" required />
+          </label>
+          <label>
+            Tiempo (años)
+            <input id="years" class="no-e" type="number" min="0.01" step="0.5" placeholder="Ej: 5" required />
+          </label>
+          <label>
+            Pagos por año
+            <input id="paymentsPerYear" class="no-e" type="number" min="1" step="1" value="12" required />
+          </label>
+          <fieldset class="table-choice">
+            <legend>Tipo de tabla</legend>
+            <label><input type="radio" name="tableType" value="francesa" checked /> Francesa</label>
+            <label><input type="radio" name="tableType" value="alemana" /> Alemana</label>
+          </fieldset>
+        </div>
+
+        <div class="actions">
+          <button id="calculateBtn" type="button">Calcular</button>
+          <button id="resetBtn" type="reset" class="secondary">Limpiar</button>
+        </div>
+
+        <div id="error" class="error" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+  </main>
+
+  <!--<footer class="site-footer">
+    <div class="container">
+      <small>Simulador creado para fines educativos — Diseño inspirado en simuladores bancarios públicos.</small>
+    </div>
+  </footer>-->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
